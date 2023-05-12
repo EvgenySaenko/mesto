@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pages/index.css" />
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+
+    <header class="header">
+        <img class="header__logo" src="images/mesto.svg" alt="Место" />
+    </header>
+
+    <main class="content">
+        <section class="profile">
+            <div class="profile__card">
+                <img class="profile__avatar" src="images/stephen-leonardi-avatar.jpg" alt="Звёздное небо" />
+                <!-- <button type="button" class="profile__edit-avatar-btn"></button> -->
+                <div class="profile__info">
+                    <h1 class="profile__name">Иван Иванов</h1>
+                    <button class="profile__edit-btn" type="button"></button>
+                    <p class="profile__sign">Путешественник по Крыму</p>
+                </div>
+            </div>
+            <button class="profile__add-photo-btn" type="button"></button>
+        </section>
+
+
+        <section class="elements">
+                <div class="element">
+                    <img class="element__image" src="images/konstantin-dyadyun-khersones.jpg" alt="Херсонес" />
+                    <div class="element__bottom">
+                        <h2 class="element__place">Херсонеc</h2>
+                        <!-- <div class="element__like"> -->
+                        <button type="button" class="element__like-btn"></button>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="element">
+                    <img class="element__image" src="images/dmitry-ant-massandra.jpg" alt="Фото Массандры" />
+                    <div class="element__bottom">
+                        <h2 class="element__place">Массандра</h2>
+                        <!-- <div class="element__like"> -->
+                        <button type="button" class="element__like-btn"></button>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="element">
+                    <img class="element__image" src="images/iam_os-ai-petri.jpg" alt="Фото Ай-Петри" />
+                    <div class="element__bottom">
+                        <h2 class="element__place">Ай-Петри</h2>
+                        <!-- <div class="element__like"> -->
+                        <button type="button" class="element__like-btn"></button>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="element">
+                    <img class="element__image" src="images/angelika-agibalova-moment.jpg" alt="Фото машины"/>
+                    <div class="element__bottom">
+                        <h2 class="element__place">Крым</h2>
+                        <!-- <div class="element__like"> -->
+                        <button type="button" class="element__like-btn"></button>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="element">
+                    <img class="element__image" src="images/oleg-gratilo-skala.jpg" alt="Фото Белой скалы" />
+                    <div class="element__bottom">
+                        <h2 class="element__place">Белая скала</h2>
+                        <!-- <div class="element__like"> -->
+                        <button type="button" class="element__like-btn"></button>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="element">
+                    <img class="element__image" src="images/iam_os-sudak.jpg" alt="Вид на возвышенности Судака" />
+                    <div class="element__bottom">
+                        <h2 class="element__place">Судак</h2>
+                        <!-- <div class="element__like"> -->
+                        <button type="button" class="element__like-btn"></button>
+                        <!-- </div> -->
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__author">©2023 Саенко Евгений</p>
+    </footer>
+
+    <div class="popup">
+        <div class="popup__container">
+            <button class="popup__close" type="button"></button>
+            <h2 class="popup__name">Редактировать профиль</h2>
+            <form class="popup__form" name="form">
+                <input class="popup__item popup__item_type_name" name="profile__name" placeholder="Имя" value="Иван Иванов"
+                    type="text">
+                <input class="popup__item popup__item_type_sign" name="profile__sign" placeholder="Вид деятельности"
+                    value="Путешественник по Крыму" type="text">
+                <button class="popup__submit" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="scripts/index.js"></script>
+</body>
+</html>
