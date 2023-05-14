@@ -22,73 +22,15 @@
                 <div class="profile__info">
                     <h1 class="profile__name">Иван Иванов</h1>
                     <button class="profile__edit-btn" type="button"></button>
-                    <p class="profile__sign">Путешественник по Крыму</p>
+                    <p class="profile__sign">Путешественник по России</p>
                 </div>
             </div>
             <button class="profile__add-photo-btn" type="button"></button>
         </section>
 
-
         <section class="elements">
-                <div class="element">
-                    <img class="element__image" src="images/konstantin-dyadyun-khersones.jpg" alt="Херсонес" />
-                    <div class="element__bottom">
-                        <h2 class="element__place">Херсонеc</h2>
-                        <!-- <div class="element__like"> -->
-                        <button type="button" class="element__like-btn"></button>
-                        <!-- </div> -->
-                    </div>
-                </div>
-
-                <div class="element">
-                    <img class="element__image" src="images/dmitry-ant-massandra.jpg" alt="Фото Массандры" />
-                    <div class="element__bottom">
-                        <h2 class="element__place">Массандра</h2>
-                        <!-- <div class="element__like"> -->
-                        <button type="button" class="element__like-btn"></button>
-                        <!-- </div> -->
-                    </div>
-                </div>
-
-                <div class="element">
-                    <img class="element__image" src="images/iam_os-ai-petri.jpg" alt="Фото Ай-Петри" />
-                    <div class="element__bottom">
-                        <h2 class="element__place">Ай-Петри</h2>
-                        <!-- <div class="element__like"> -->
-                        <button type="button" class="element__like-btn"></button>
-                        <!-- </div> -->
-                    </div>
-                </div>
-
-                <div class="element">
-                    <img class="element__image" src="images/angelika-agibalova-moment.jpg" alt="Фото машины"/>
-                    <div class="element__bottom">
-                        <h2 class="element__place">Крым</h2>
-                        <!-- <div class="element__like"> -->
-                        <button type="button" class="element__like-btn"></button>
-                        <!-- </div> -->
-                    </div>
-                </div>
-
-                <div class="element">
-                    <img class="element__image" src="images/oleg-gratilo-skala.jpg" alt="Фото Белой скалы" />
-                    <div class="element__bottom">
-                        <h2 class="element__place">Белая скала</h2>
-                        <!-- <div class="element__like"> -->
-                        <button type="button" class="element__like-btn"></button>
-                        <!-- </div> -->
-                    </div>
-                </div>
-
-                <div class="element">
-                    <img class="element__image" src="images/iam_os-sudak.jpg" alt="Вид на возвышенности Судака" />
-                    <div class="element__bottom">
-                        <h2 class="element__place">Судак</h2>
-                        <!-- <div class="element__like"> -->
-                        <button type="button" class="element__like-btn"></button>
-                        <!-- </div> -->
-                    </div>
-                </div>
+            <ul class="elements__list">
+            </ul>
         </section>
     </main>
 
@@ -96,21 +38,55 @@
         <p class="footer__author">©2023 Саенко Евгений</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup_edit_profile">
         <div class="popup__container">
             <button class="popup__close" type="button"></button>
             <h2 class="popup__name">Редактировать профиль</h2>
             <form class="popup__form" name="form">
-                <input class="popup__item popup__item_type_name" name="profile__name" placeholder="Имя" value="Иван Иванов"
-                    type="text">
+                <input class="popup__item popup__item_type_name" name="profile__name" placeholder="Имя"
+                    value="Иван Иванов" type="text">
                 <input class="popup__item popup__item_type_sign" name="profile__sign" placeholder="Вид деятельности"
-                    value="Путешественник по Крыму" type="text">
+                    value="Путешественник по России" type="text">
                 <button class="popup__submit" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
 
+    <!-- попап добавления новой карточки -->
+    <div class="popup popup_type_add-card">
+        <div class="popup__container">
+            <button class="popup__close popup__close_card" type="button" aria-label="Close"></button>
+            <h2 class="popup__name">Новое место</h2>
+            <form class="popup__form popup__formcard" name="formCard">
+                <input class="popup__item popup__item_palce_name" type="text" placeholder="Название">
+                <input class="popup__item popup__item_place_link" type="url" placeholder="Ссылка на картинку">
+                <button class="popup__submit" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
 
+    <!-- Полноразмерная карточка -->
+    <div class="popup popup_photo_card">
+        <div class="popup__container-card">
+            <button class="popup__close popup__close_photo" type="button" aria-label="Close">
+            </button>
+            <img class="popup__image-card" src="#" alt="Полноразмерное фото">
+            <h2 class="popup__title-card"></h2>
+        </div>
+    </div>
+
+    <template id="elements-add">
+        <li class="elements__item">
+            <button class="elements__delete" type="button"></button>
+            <img class="elements__image" src="#" alt="Загруженная картинка">
+            <div class="elements__bottom">
+                <h2 class="elements__place"></h2>
+                <button class="elements__like" type="button" aria-label="like"></button>
+            </div>
+        </li>
+    </template>
+
+    <script src="scripts/constants.js"></script>
     <script src="scripts/index.js"></script>
 </body>
 </html>
