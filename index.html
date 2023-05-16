@@ -18,7 +18,6 @@
         <section class="profile">
             <div class="profile__card">
                 <img class="profile__avatar" src="images/stephen-leonardi-avatar.jpg" alt="Звёздное небо" />
-                <!-- <button type="button" class="profile__edit-avatar-btn"></button> -->
                 <div class="profile__info">
                     <h1 class="profile__name">Иван Иванов</h1>
                     <button class="profile__edit-btn" type="button"></button>
@@ -42,11 +41,15 @@
         <div class="popup__container">
             <button class="popup__close" type="button"></button>
             <h2 class="popup__name">Редактировать профиль</h2>
-            <form class="popup__form" name="form">
-                <input class="popup__item popup__item_type_name" name="profile__name" placeholder="Имя"
-                    value="Иван Иванов" type="text">
-                <input class="popup__item popup__item_type_sign" name="profile__sign" placeholder="Вид деятельности"
+            <form class="popup__form" name="form" novalidate>
+                <input id="input-name" class="popup__item popup__item_type_name" name="profile__name" minlength="2"
+                    maxlength="40" required placeholder="Имя" value="Иван Иванов" type="text">
+                <span class="input-name-error input-error"></span>
+
+                <input id="input-description" class="popup__item popup__item_type_sign" name="profile__sign"
+                    minlength="2" maxlength="200" required placeholder="Вид деятельности"
                     value="Путешественник по России" type="text">
+                <span class="input-description-error input-error"></span>
                 <button class="popup__submit" type="submit">Сохранить</button>
             </form>
         </div>
@@ -57,9 +60,14 @@
         <div class="popup__container">
             <button class="popup__close popup__close_card" type="button" aria-label="Close"></button>
             <h2 class="popup__name">Новое место</h2>
-            <form class="popup__form popup__formcard" name="formCard">
-                <input class="popup__item popup__item_palce_name" type="text" placeholder="Название">
-                <input class="popup__item popup__item_place_link" type="url" placeholder="Ссылка на картинку">
+            <form class="popup__form popup__formcard" name="formCard" novalidate>
+                <input id="input-place" class="popup__item popup__item_palce_name" type="text" placeholder="Название"
+                    required minlength="2" maxlength="30">
+                <span class="input-error input-place-error"></span>
+
+                <input id="input-link" class="popup__item popup__item_place_link" type="url"
+                    placeholder="Ссылка на картинку" required>
+                <span class="input-error input-link-error"></span>
                 <button class="popup__submit" type="submit">Создать</button>
             </form>
         </div>
@@ -70,7 +78,7 @@
         <div class="popup__container-card">
             <button class="popup__close popup__close_photo" type="button" aria-label="Close">
             </button>
-            <img class="popup__image-card" src="#" alt="Полноразмерное фото">
+            <img class="popup__image-card" src="#">
             <h2 class="popup__title-card"></h2>
         </div>
     </div>
@@ -78,7 +86,7 @@
     <template id="elements-add">
         <li class="elements__item">
             <button class="elements__delete" type="button"></button>
-            <img class="elements__image" src="#" alt="Загруженная картинка">
+            <img class="elements__image" src="#">
             <div class="elements__bottom">
                 <h2 class="elements__place"></h2>
                 <button class="elements__like" type="button" aria-label="like"></button>
@@ -86,6 +94,7 @@
         </li>
     </template>
 
+    <script src="scripts/validate.js"></script>
     <script src="scripts/constants.js"></script>
     <script src="scripts/index.js"></script>
 </body>
