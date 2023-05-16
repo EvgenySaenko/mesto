@@ -1,13 +1,14 @@
 .popup__item {
     max-width: 358px;
     width: 100%;
-    margin: 20px 0 0;
+    margin: 0;
+    /* margin-top: 20px; */
     padding: 0;
     border: 0;
     box-sizing: border-box;
     font-weight: 400;
     font-size: 14px;
-    line-height: 32px;
+    line-height: 22px;
     color: #000;
     border-bottom: 1px solid rgb(0,0,0, 0.2);
     outline: none;
