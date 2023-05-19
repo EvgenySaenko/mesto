@@ -1,5 +1,7 @@
 .popup__form {
-    margin: 0;
-    padding: 0;
-    border: 0;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
   }
