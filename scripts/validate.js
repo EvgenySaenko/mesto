@@ -1,3 +1,5 @@
+// включение валидации вызовом enableValidation
+// все настройки передаются при вызове
 
 const validationConfig = {
   formSelector: ".popup__container",
@@ -27,16 +29,16 @@ const hideInputError = (formElement, inputElement, config) => {
   errorElement.textContent = "";
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
     showInputError(
       formElement,
       inputElement,
       inputElement.validationMessage,
-      validationConfig
+      config
     );
   } else {
-    hideInputError(formElement, inputElement, validationConfig);
+    hideInputError(formElement, inputElement, config);
   }
 };
 
@@ -48,11 +50,11 @@ const setEventListeners = (formElement, config) => {
   const buttonElement = formElement.querySelector(
     config.submitButtonSelector
   );
-  toggleButtonState(inputList, buttonElement, validationConfig);
+  toggleButtonState(inputList, buttonElement, config);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement, validationConfig);
+      checkInputValidity(formElement, inputElement, config);
+      toggleButtonState(inputList, buttonElement, config);
     });
   });
 };
@@ -62,9 +64,6 @@ function enableValidation(config) {
     document.querySelectorAll(config.formSelector)
   );
   formList.forEach((formElement) => {
-    // formElement.addEventListener("submit", (evt) => {
-    //   evt.preventDefault();
-    // });
     setEventListeners(formElement, config);
   });
 }
@@ -79,6 +78,7 @@ function hasInvalidInput(inputList) {
 function toggleButtonState(inputList, buttonElement, config) {
   if (hasInvalidInput(inputList)) {
     addClassElem(buttonElement, config.inactiveButtonClass);
+    buttonElement.disabled = true;
   } else {
     removeClassElem(buttonElement, config.inactiveButtonClass);
     buttonElement.disabled = false;
