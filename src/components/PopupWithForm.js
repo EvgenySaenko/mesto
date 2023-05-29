@@ -13,12 +13,14 @@ export class PopupWithForm extends Popup {
     this._inputList.forEach((input) => {
       this._values[input.name] = input.value;
     });
-    return this._values;//возвращаем введенные данные обоих полей при редактировании профиля
+    return this._values;//возвращаем введённые данные обоих полей при редактировании профиля
   }
 
   setInputValues(data) {
     this._inputList.forEach((input) => {
-      input.value = data[input.name];
+      if(!(typeof data[input.name] === "undefined")){
+        input.value = data[input.name];
+      }
     });
   }
 

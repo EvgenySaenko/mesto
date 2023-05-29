@@ -1,8 +1,8 @@
 import './index.css';
 import {
   initialCards, validationConfig,
-  cardTemplateItem, popupCardPhoto, cardsContainer, popupEditProfile, buttonEditProfile,
-  popupFormNewCard, buttonOpenFormNewCard
+  cardTemplateItem, cardsContainer, buttonEditProfile,
+  buttonOpenFormNewCard
 }
   from "../utils/constants.js";
 import { Card } from "../components/Card.js";
@@ -23,7 +23,7 @@ const userInfo = new UserInfo({
 });
 
 //попап профиля
-const popupUserInfo = new PopupWithForm(popupEditProfile, {
+const popupUserInfo = new PopupWithForm(".popup_edit_profile", {
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data);
 
@@ -32,10 +32,13 @@ const popupUserInfo = new PopupWithForm(popupEditProfile, {
 popupUserInfo.setEventListeners();
 
 //открытиe редактирования профиля
+// const formEditProfile = document.querySelector('.popup__form_profile');
+
 buttonEditProfile.addEventListener("click", () => {
   popupUserInfo.setInputValues(userInfo.getUserInfo());
-  popupUserInfo.open();
   formValidators["form-profile"].resetValidation();
+  popupUserInfo.open();
+  // addButtonInactive(formEditProfile);
 });
 
 /**
@@ -62,24 +65,34 @@ const cardsList = new Section(
 cardsList.rendererItems(initialCards);
 
 //попап добавления новой карточки
-const popupAddNewCard = new PopupWithForm(popupFormNewCard, {
+const popupAddNewCard = new PopupWithForm(".popup_type_add-card", {
   handleFormSubmit: ({ place, link }) => {
     cardsList.setItem(createCard({ name: place, link: link }));
   },
 });
 popupAddNewCard.setEventListeners();
 
+//функция деактивирования кнопки
+// const formAddCard = document.querySelector(".popup__form_card");
+
+// function addButtonInactive(form) {
+//   const popupButtonSave = form.querySelector(".popup__submit");
+//   popupButtonSave.classList.add("popup__submit_inactive");
+//   popupButtonSave.disabled = true;
+// }
+
 /**
  * Полноразмерное фото карточки
  **/
 
 //попап полноразмерного фото карточки
-const popupImage = new PopupWithImage(popupCardPhoto);
+const popupImage = new PopupWithImage(".popup_photo_card");
 popupImage.setEventListeners();
 
 buttonOpenFormNewCard.addEventListener("click", () => {
   formValidators["form-card"].resetValidation();
   popupAddNewCard.open();
+  // addButtonInactive(formAddCard);
 });
 
 /**

@@ -31,7 +31,6 @@ export {
   popupEditProfile, buttonEditProfile, popupFormNewCard, buttonOpenFormNewCard
 }
 
-
 export const validationConfig = {
   formSelector: ".popup__container",
   inputSelector: ".popup__item",
@@ -67,4 +66,3 @@ export const initialCards = [
     link: 'https://images.unsplash.com/photo-1594397394907-096148b9d1c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNhaW50JTIwcGV0ZXJzYnVyZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
   }
 ];
-
