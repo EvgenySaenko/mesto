@@ -6,6 +6,7 @@ export class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector("div.popup__container .popup__form");
     this._inputList = Array.from(this._form.querySelectorAll(".popup__item"));
+    this._buttonSubmit = this._popup.querySelector(".popup__submit");
   }
 
   _getInputValues() {
@@ -16,6 +17,7 @@ export class PopupWithForm extends Popup {
     return this._values;//возвращаем введённые данные обоих полей при редактировании профиля
   }
 
+  //заполнение полей формы
   setInputValues(data) {
     this._inputList.forEach((input) => {
       if(!(typeof data[input.name] === "undefined")){
@@ -26,15 +28,32 @@ export class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-      this.close();
+
+    this._form.addEventListener("submit", () => {
+      const initialText = this._buttonSubmit.textContent;
+      this._buttonSubmit.textContent = "Сохранение ...";
+      this._handleFormSubmit(this._getInputValues())
+        .then(() => this.close())
+        .finally(() => {
+          this._buttonSubmit.textContent = initialText;
+        });
     });
   }
 
   close() {
     super.close();
     this._form.reset();
+  }
+
+  //предзагрузка (Удаление .../ Сохранение...)
+  renderPreloader(isLoading, displayText) {
+    if (!this._buttonSubmit) return;
+    if (isLoading) {
+      this.defaulText = this._buttonSubmit.textContent;
+      this._buttonSubmit.textContent = displayText;
+    }
+    // else {
+    //   this._buttonSubmit.textContent = this.defaulText;
+    // }
   }
 }

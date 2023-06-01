@@ -2,6 +2,7 @@ const content = document.querySelector('.content');
 //попап редактирования профиля
 const profileName = content.querySelector('.profile__name');
 const profileSign = content.querySelector('.profile__sign');
+const buttonAvatar = content.querySelector('.profile__avatar');
 const buttonOpenFormNewCard = document.querySelector(".profile__add-photo-btn");
 const buttonEditProfile = content.querySelector('.profile__edit-btn');
 const buttonCloseEditProfilePopup = document.querySelector('.popup__close_profile');
@@ -28,7 +29,7 @@ const cardsContainer = document.querySelector(".elements__list");
 
 export {
   cardTemplateItem, popupCardPhoto, cardsContainer,
-  popupEditProfile, buttonEditProfile, popupFormNewCard, buttonOpenFormNewCard
+  popupEditProfile, buttonEditProfile, popupFormNewCard, buttonOpenFormNewCard, buttonAvatar
 }
 
 export const validationConfig = {
@@ -66,3 +67,11 @@ export const initialCards = [
     link: 'https://images.unsplash.com/photo-1594397394907-096148b9d1c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNhaW50JTIwcGV0ZXJzYnVyZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
   }
 ];
+
+export const apiConfig = {
+  url: '',
+  headers:{
+    authorization: '',
+    'Content-Type': 'application/json'
+  }
+}
