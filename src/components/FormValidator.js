@@ -76,5 +76,4 @@ export class FormValidator {
       this._hideInputError(inputElement);
     });
   }
-
 }

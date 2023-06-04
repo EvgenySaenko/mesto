@@ -1,5 +1,4 @@
 import { Popup } from "./Popup.js";
-
 export class PopupWithForm extends Popup {
   constructor(popupSelector, { handleFormSubmit }) {
     super(popupSelector);
@@ -32,6 +31,7 @@ export class PopupWithForm extends Popup {
     this._form.addEventListener("submit", () => {
       const initialText = this._buttonSubmit.textContent;
       this._buttonSubmit.textContent = "Сохранение ...";
+      console.log(this)
       this._handleFormSubmit(this._getInputValues())
         .then(() => this.close())
         .finally(() => {
@@ -52,8 +52,5 @@ export class PopupWithForm extends Popup {
       this.defaulText = this._buttonSubmit.textContent;
       this._buttonSubmit.textContent = displayText;
     }
-    // else {
-    //   this._buttonSubmit.textContent = this.defaulText;
-    // }
   }
 }

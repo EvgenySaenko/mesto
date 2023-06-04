@@ -1,7 +1,7 @@
 .elements__like {
     width: 22px;
     height: 19px;
-    margin: 0;
+    margin: 0 0 3px 0;
     padding: 0;
     display: block;
     background: transparent url(../../../images/like-dis.svg);

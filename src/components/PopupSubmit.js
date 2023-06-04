@@ -4,7 +4,7 @@ export class PopupSubmit extends Popup {
   constructor(popupSelector, { handleSubmit }) {
     super(popupSelector);
     this._handleSubmit = handleSubmit;
-    this._buttonSubmit = this._popup.querySelector(".popup__button-save");
+    this._buttonSubmit = this._popup.querySelector(".popup__submit");
   }
 
   //открытие попапа и получение данных о карточке
@@ -27,6 +27,7 @@ export class PopupSubmit extends Popup {
 
   //сетим листнеры
   setEventListeners() {
+    console.log(this);
     super.setEventListeners();
     this._buttonSubmit.addEventListener("click", () => this._handleSubmit(this.id, this.card));
   }
